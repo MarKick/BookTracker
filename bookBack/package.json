@@ -1,0 +1,15 @@
+{
+    "name": "bookback",
+    "version": "1.0.0",
+    "description": "Frontend of Book review app",
+        "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "nodemon src/index.js"
+    },
+    "author": "Marcus Kicklighter",
+    "license": "NONE",
+    "dependencies": {
+        "express": "^4.18.1",
+        "socket.io": "^4.5.0"
+    }
+}
