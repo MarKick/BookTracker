@@ -1,6 +1,7 @@
 
 import React, {useState, useEffect}  from "react";
 import BookInfo from "./BookInfo";
+import AddBook from "./AddBook";
 
 const ViewBookYear = (props) => {
   const [loading, setLoading] = useState(true);
@@ -21,21 +22,13 @@ const ViewBookYear = (props) => {
     })
     .then(async res => res.json())
     .then(async resData => {
-          
-        // console.log(resData.year2024.books[0]);
-        // const returnVal = JSON.parse(resData);
         setData(resData);
         setLoading(false);
-        // console.log(data);
     })
   }
   useEffect(() => {
       fetchData();
   }, [])
-
-  function seeData() {
-    console.log(data.year2024.books);
-  }
   
   const thisYear = props.year;
 
@@ -55,10 +48,9 @@ const ViewBookYear = (props) => {
             </div>);
         })}
         </center>
-      
-        <a href="addBook" className="addBookLink" > Add book </a>
-        <button onClick={seeData}> See data </button>
+        <AddBook
         
+        />
       </div>
     }
     </div>

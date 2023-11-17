@@ -1,14 +1,12 @@
-import React, {useState, useEffect}  from "react";
+import React, {useState}  from "react";
 
 const BookInfo = ({props}) => {
     const [dd, setDD] = useState(false); 
 
     const handleClick = () => {
-        setDD(true)
+        setDD(!dd)
         // TO-DO: Make fetch to get book information from backend
     }
-
-    
 
     return (
         <div
