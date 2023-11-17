@@ -23,9 +23,7 @@ app.get("/status", (req, res) => {
 
 app.get("/getBookList", (req, res) => {
     // console.log(req.sendToServer);
-    console.log("\n !!! Check getBookList !!! \n");
-
-    
+    // console.log("\n !!! Check getBookList !!! \n");
     res.json({
         year2024: {
             books : [

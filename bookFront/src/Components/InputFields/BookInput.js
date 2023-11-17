@@ -10,9 +10,12 @@ const BookInput = ({props}) => {
 
     return (
         <div>
+            <label>
+                Write your post:
+                <textarea name="postContent" rows={4} cols={40} />
+            </label>
               
-              
-              <button style={{ fontSize: 15, color: 'black'}} onClick={handleClick}> Add book to book list</button> 
+            <button style={{ fontSize: 15, color: 'black'}} onClick={handleClick}> Add book to book list</button> 
               
         </div>
     );
