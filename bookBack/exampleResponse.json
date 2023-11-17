@@ -1,0 +1,23 @@
+{
+    "2024": {
+                "books" : [
+                    {
+                        "title" : "Frankenstein: modern Prometheus",
+                        "author" : "Mary Shelly",
+                        "score" : "5",
+                        "review" : "Awesome"
+                    }, 
+                    {
+                        "title" : "Astarte",
+                        "author" : "Karin Boye",
+                        "score" : "4", 
+                        "review" : "Good"
+                    }, 
+                    {
+                        "title" : "From whom the bell tolls",
+                        "author" : "Ernest Hemmingway",
+                        "score" : "ok"
+                    }
+                ]
+            }
+}

@@ -3,8 +3,9 @@
     "version": "1.0.0",
     "description": "Frontend of Book review app",
         "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "dev": "nodemon src/index.js"
+            "test": "echo \"Error: no test specified\" && exit 1",
+            "dev": "nodemon server.js", 
+            "start": "node server"
     },
     "author": "Marcus Kicklighter",
     "license": "NONE",
