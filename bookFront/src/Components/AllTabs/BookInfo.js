@@ -1,12 +1,14 @@
 import React, {useState, useEffect}  from "react";
 
-
 const BookInfo = ({props}) => {
-    const [dd, setDD] = useState(false);
+    const [dd, setDD] = useState(false); 
 
-    function effectButton() {
+    const handleClick = () => {
         setDD(true)
+        // TO-DO: Make fetch to get book information from backend
     }
+
+    
 
     return (
         <div
@@ -19,13 +21,13 @@ const BookInfo = ({props}) => {
               }}
             >
               {/* TODO: Make these buttons to seperate sites */}
-              <button style={{ fontSize: 15, color: 'black' }} > {props.title} ~ {props.author}</button> 
+              <button style={{ fontSize: 15, color: 'black'}} onClick={handleClick}> {props.title} ~ {props.author}</button> 
               
               <div>{dd ? <p>text info</p>: null}</div>
             </div>
     );
 }; export default BookInfo;
 
-// onClick={setDD(true)}
+// 
 
 // 

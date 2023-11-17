@@ -47,13 +47,12 @@ const ViewBookYear = (props) => {
         <h1>Read books {thisYear}!</h1>  
         <center>
         {data.year2024.books.map((dataObj, index) => {
-          return (
-            <BookInfo 
-              id={index}
-              props={dataObj}
-            />
-            
-          );
+            return (<div key={index}> 
+              <BookInfo 
+                id={index}
+                props={dataObj}
+              />
+            </div>);
         })}
         </center>
       
