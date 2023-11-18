@@ -2,6 +2,7 @@
 import React, {useState, useEffect}  from "react";
 import BookInfo from "./BookInfo";
 import AddBook from "./AddBook";
+import BookCount from "../BookCount";
 
 const ViewBookYear = (props) => {
   const [loading, setLoading] = useState(true);
@@ -32,6 +33,8 @@ const ViewBookYear = (props) => {
   
   const thisYear = props.year;
 
+  // TO DO: Book counter
+
   return (
     <div> {
       loading ? <p>Fetching data</p> :
@@ -39,7 +42,7 @@ const ViewBookYear = (props) => {
       <div className="ViewBookYear">
         <h1>Read books {thisYear}!</h1>  
         <center>
-        {data.year2024.books.map((dataObj, index) => {
+        {data.tab1.books.map((dataObj, index) => {
             return (<div key={index}> 
               <BookInfo 
                 id={index}
@@ -48,6 +51,7 @@ const ViewBookYear = (props) => {
             </div>);
         })}
         </center>
+        <BookCount/>
         <AddBook
         
         />
