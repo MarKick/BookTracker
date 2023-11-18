@@ -13,10 +13,24 @@ const BookInput = ({props}) => {
     return (
         <div>
             <div>
-                <TextField/>
+                <TextField
+                    text={"Title:"}
+                />
             </div>
             <div>
-                <TextArea/>
+                <TextField
+                    text={"Author:"}
+                />
+            </div>
+            <div>
+                <TextField
+                    text={"Score:"}
+                />
+            </div>
+            <div>
+                <TextArea
+                    text={"Review:"}
+                />
             </div>
 
             <div>
