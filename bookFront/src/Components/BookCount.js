@@ -5,10 +5,6 @@ const BookCount = ({props}) => {
     const [loading, setLoading] = useState(true); 
     const [data, setData] = useState({});
     
-    const availBookCount = () => {
-        setLoading(false)
-        // 
-    }
     const fetchData = () => {
         fetch('http://localhost:3001/getBookList', {
           method: 'GET',
