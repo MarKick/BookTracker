@@ -1,10 +1,20 @@
 .bookInfoButton {
-
     background: #a9a9a9;
     width: 40rem;
     padding: 1rem;
     border-radius: 1rem;
-    margin-block: 0.2rem; 
-    font-size: 18px;
+    margin-block: 0.5rem; 
+    font-size: 20px;
     text-align: center;
+    border: 1px solid #a9a9a9;
+}
+
+.bookInfoText {
+    font-size: 30px;
+    text-align: left;
+}
+
+.bookInfoReview {
+    font-size: 20px;
+    text-align: left;
 }

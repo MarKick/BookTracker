@@ -47,6 +47,7 @@ const ViewBookYear = (props) => {
               <BookInfo 
                 id={index}
                 props={dataObj}
+                year={thisYear}
               />
             </div>);
         })}
