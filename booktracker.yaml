@@ -1,0 +1,69 @@
+######################################
+### Kubernetes file for deployment ###
+######################################
+
+# BookFront + BookBack
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: booktracker-service
+  labels:
+    app: booktracker
+spec:
+  type: LoadBalancer
+  ports:
+  - name: http
+    port: 3000
+    nodePort: 30001
+    protocol: TCP
+  selector:
+    app: booktracker
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: booktracker-standalone
+  labels:
+    app: booktracker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: booktracker
+  template:
+    metadata:
+      labels:
+        app: booktracker
+    spec:
+      containers:
+      - name: booktracker
+        image: ## INSERT LINK TO bookfront image on docker-hub
+        ports:
+        - containerPort: 3000
+      - name: bookbacl
+        image: ## INSERT LINK TO bookback image on docker-hub
+        ports:
+        - containerPort: 3001
+        env:
+        - name: TEXTSTORE_HOST
+          valueFrom:
+            configMapKeyRef: 
+              name: bookback-config
+              key: bookdata_host
+---
+# BookData
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bookback-service
+  labels:
+    app: bookback
+---
+# ConfigMap
+---
+apiVersion: v1
+kind: ConfigMap
+
+---

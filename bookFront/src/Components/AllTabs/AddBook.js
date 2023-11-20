@@ -7,7 +7,7 @@ const AddBook = (props) => {
     const sendToDB = () => {
         setDD(!dd)
     }
-    const yearOfTab = props.year;
+    // const yearOfTab = props.year;
     return (
         <div>
               {/* TO DO: Add styling to add book button to have either + or - in it to either expand or reverse pop-down */}

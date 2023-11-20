@@ -1,20 +1,20 @@
-.addBookBtn {
-    top:50%;
+.addBookToList {
+    top:30%;
     background-color: #047e07 ;
     color: black;
     border:black;
     border-radius:10em;
-    padding:10px;
+    padding:5px;
     min-height:30px; 
     min-width: 250px;
-    font-size: 30px;
+    font-size: 15px;
 }
 
-.addBookBtn:hover {
+.addBookToList:hover {
     background-color:#93d713;
     transition: 0.7s;
 }
 
-.addBookBtn:active {
+.addBookToList:active {
     background-color: #ffbf00;
 }

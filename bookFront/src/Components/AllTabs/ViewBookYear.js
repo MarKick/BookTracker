@@ -7,7 +7,10 @@ import BookCount from "./BookCount";
 const ViewBookYear = (props) => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState({});
+  const [tabdata, setTabdata] = useState();
   // const url = "https://jsonplaceholder.typicode.com/users"; // TODO: Remove, connect to API instead
+  const thisYear = props.year;
+  const thisTab = props.tab;
 
   const fetchData = () => {
     fetch('http://localhost:3001/getBookList', {
@@ -19,16 +22,13 @@ const ViewBookYear = (props) => {
     .then(async res => res.json())
     .then(async resData => {
         setData(resData);
+        setTabdata(resData[thisTab])
         setLoading(false);
     })
   }
   useEffect(() => {
       fetchData();
   }, [])
-  
-  const thisYear = props.year;
-
-  // TO DO: Book counter
 
   return (
     <div> {
@@ -37,7 +37,7 @@ const ViewBookYear = (props) => {
       <div className="ViewBookYear">
         <h1>Read books {thisYear}!</h1>  
         <center>
-        {data.tab1.books.map((dataObj, index) => {
+        {tabdata.books.map((dataObj, index) => {
             return (<div key={index}> 
               <BookInfo 
                 id={index}

@@ -21,24 +21,28 @@ const Tabs = () => {
                 <TabContent id="tab1" activeTab={activeTab}>
                     <ViewBookYear
                         year={2024}
+                        tab={"tab1"}
                     />
                 </TabContent>
 
                 <TabContent id="tab2" activeTab={activeTab}>
                     <ViewBookYear
                         year={2023}
+                        tab={"tab2"}
                     />
                 </TabContent>
 
                 <TabContent id="tab3" activeTab={activeTab}>
                     <ViewBookYear
                         year={2022}
+                        tab={"tab3"}
                     />
                 </TabContent>
 
                 <TabContent id="tab4" activeTab={activeTab}>
                     <ViewBookYear
                         year={2021}
+                        tab={"tab4"}
                     />
                 </TabContent>
             </div>

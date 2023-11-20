@@ -34,6 +34,7 @@ body {
   @media (max-width: 769px) {
     padding: 2rem 0;
   }
+  overflow-y: scroll;
  
 }
  

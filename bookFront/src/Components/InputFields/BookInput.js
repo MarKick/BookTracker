@@ -2,6 +2,7 @@ import React, {useState}  from "react";
 // import TextField from "./TextField";
 // import TextArea from "./TextArea";
 import './text-input-style.css';
+import './bookInput.css'
 
 function postForm(title, author, score, review) {
     var success = 0;
@@ -91,7 +92,7 @@ const BookInput = ({props}) => {
             </div>
 
             <div>
-                <button style={{ fontSize: 15, color: 'black'}} onClick={() => postForm(title, author, buttonnstate, review)}> Add book to book list</button> 
+                <button className="addBookToList" onClick={() => postForm(title, author, buttonnstate, review)}> Add book to book list</button> 
             </div>
             
               
