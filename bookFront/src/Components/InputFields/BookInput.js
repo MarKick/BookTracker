@@ -1,6 +1,7 @@
 import React, {useState}  from "react";
 import TextField from "./TextField";
 import TextArea from "./TextArea";
+import './text-input-style.css';
 
 function postForm(title, author, score, review) {
     var success = 0;
@@ -36,6 +37,7 @@ const BookInput = ({props}) => {
                 </input>
             </div>
             <div>
+                <p style={{ fontSize: 15, color: 'white'}}> Author:</p>
                 <input
                 value={author}
                 onChange={e => setAuthor(e.target.value)}
@@ -43,6 +45,7 @@ const BookInput = ({props}) => {
                 </input>
             </div>
             <div>
+                <p style={{ fontSize: 15, color: 'white'}}> Score:</p>
                 <input
                 value={score}
                 onChange={e => setScore(e.target.value)}
@@ -50,11 +53,12 @@ const BookInput = ({props}) => {
                 </input>
             </div>
             <div>
-                <input
+                <p style={{ fontSize: 15, color: 'white'}}> Review:</p>
+                <textarea
                 value={review}
                 onChange={e => setReview(e.target.value)}
                 required>
-                </input>
+                </textarea>
             </div>
 
             <div>
