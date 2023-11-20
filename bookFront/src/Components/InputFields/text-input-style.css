@@ -25,4 +25,17 @@ textarea {
     text-align: center;
     flex-direction: row;
 }
-  
+
+.titleInput {
+    padding-top: 25px;
+    padding-bottom: 5px;
+    font-size: 15px;
+    color: white;
+}
+
+.fieldInput {
+    padding-top: 15px;
+    padding-bottom: 8px;
+    font-size: 15px;
+    color: white;
+}

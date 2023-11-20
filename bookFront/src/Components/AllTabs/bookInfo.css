@@ -17,4 +17,12 @@
 .bookInfoReview {
     font-size: 20px;
     text-align: left;
+    padding-bottom: 10px;
+}
+
+.bookCountText {
+    font-size: 20px;
+    text-align: right;
+    padding-bottom: 10px;
+    width: 100rem;
 }

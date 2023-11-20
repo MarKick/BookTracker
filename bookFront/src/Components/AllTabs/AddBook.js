@@ -1,6 +1,6 @@
 import React, {useState}  from "react";
 import BookInput from "../InputFields/BookInput";
-
+import "./addBook.css";
 
 const AddBook = (props) => {
     const [dd, setDD] = useState(false); 
@@ -11,8 +11,8 @@ const AddBook = (props) => {
     return (
         <div>
               {/* TO DO: Add styling to add book button to have either + or - in it to either expand or reverse pop-down */}
-              <button style={{ fontSize: 15, color: 'black'}} onClick={sendToDB}> Add book</button> 
-              <p>Year of tab: {yearOfTab}</p>
+              <button className="addBookBtn" onClick={sendToDB}> Add book</button> 
+              {/* <p>Year of tab: {yearOfTab}</p> */}
               <div>{dd ? <BookInput/> : null}</div>
         </div>
     );

@@ -2,7 +2,7 @@
 import React, {useState, useEffect}  from "react";
 import BookInfo from "./BookInfo";
 import AddBook from "./AddBook";
-import BookCount from "../BookCount";
+import BookCount from "./BookCount";
 
 const ViewBookYear = (props) => {
   const [loading, setLoading] = useState(true);

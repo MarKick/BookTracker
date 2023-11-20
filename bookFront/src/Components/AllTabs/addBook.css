@@ -1,0 +1,16 @@
+.addBookBtn {
+    top:50%;
+    background-color: #047e07 ;
+    color: black;
+    border:black;
+    border-radius:10em;
+    padding:10px;
+    min-height:30px; 
+    min-width: 250px;
+    font-size: 30px;
+}
+
+.addBookBtn:hover {
+    background-color:#93d713;
+    transition: 0.7s;
+}

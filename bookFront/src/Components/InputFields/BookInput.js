@@ -29,7 +29,7 @@ const BookInput = ({props}) => {
     return (
         <div>
             <div>
-                <p style={{ fontSize: 15, color: 'white'}}> Title:</p>
+                <p className="titleInput"> Title:</p>
                 <input
                 value={title}
                 onChange={e => setTitle(e.target.value)}
@@ -37,7 +37,7 @@ const BookInput = ({props}) => {
                 </input>
             </div>
             <div>
-                <p style={{ fontSize: 15, color: 'white'}}> Author:</p>
+                <p className="fieldInput"> Author:</p>
                 <input
                 value={author}
                 onChange={e => setAuthor(e.target.value)}
@@ -45,7 +45,7 @@ const BookInput = ({props}) => {
                 </input>
             </div>
             <div>
-                <p style={{ fontSize: 15, color: 'white'}}> Score:</p>
+                <p className="fieldInput"> Score:</p>
                 {/* TO DO: Set styling on radiobuttons */}
                 <form>
                     <div className="radio">
@@ -82,7 +82,7 @@ const BookInput = ({props}) => {
                 </form>
             </div>
             <div>
-                <p style={{ fontSize: 15, color: 'white'}}> Review:</p>
+                <p className="fieldInput"> Review:</p>
                 <textarea
                 value={review}
                 onChange={e => setReview(e.target.value)}
