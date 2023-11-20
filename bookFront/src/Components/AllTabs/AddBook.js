@@ -4,11 +4,8 @@ import BookInput from "../InputFields/BookInput";
 
 const AddBook = (props) => {
     const [dd, setDD] = useState(false); 
-    
-
     const sendToDB = () => {
         setDD(!dd)
-        // 
     }
     const yearOfTab = props.year;
     return (

@@ -5,7 +5,7 @@ import './div-style.css';
 const TextArea = (props) => {
   const text = props.text;
   return ( 
-    <div class="div-container">
+    <div className="div-container">
       <div>
         <p style={{ fontSize: 15, color: 'white'}}> {text}</p>
       </div>

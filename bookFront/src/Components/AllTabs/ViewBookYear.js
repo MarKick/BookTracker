@@ -9,11 +9,6 @@ const ViewBookYear = (props) => {
   const [data, setData] = useState({});
   // const url = "https://jsonplaceholder.typicode.com/users"; // TODO: Remove, connect to API instead
 
-  // const fetchInfo = () => { 
-  //   return fetch(url) 
-  //           .then((res) => res.json()) 
-  //           .then((d) => setData(d)) 
-  //   }
   const fetchData = () => {
     fetch('http://localhost:3001/getBookList', {
       method: 'GET',
