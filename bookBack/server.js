@@ -16,7 +16,7 @@ app.get("/status", (req, res) => {
 });
 
 app.post("/addBook", (req, res) => {
-    console.log(req.body.title);
+    console.log(req.body);
     res.json({responseFromServer: "success!!!!"})
 })
 
