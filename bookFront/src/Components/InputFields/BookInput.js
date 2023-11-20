@@ -46,6 +46,7 @@ const BookInput = ({props}) => {
             </div>
             <div>
                 <p style={{ fontSize: 15, color: 'white'}}> Score:</p>
+                {/* TO DO: Set styling on radiobuttons */}
                 <form>
                     <div className="radio">
                         <label className="buttonControlLabel">
