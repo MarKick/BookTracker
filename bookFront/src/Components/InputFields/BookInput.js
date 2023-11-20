@@ -1,6 +1,6 @@
 import React, {useState}  from "react";
-import TextField from "./TextField";
-import TextArea from "./TextArea";
+// import TextField from "./TextField";
+// import TextArea from "./TextArea";
 import './text-input-style.css';
 
 function postForm(title, author, score, review) {
@@ -20,10 +20,10 @@ function postForm(title, author, score, review) {
 
 const BookInput = ({props}) => {
     // const [data, setData] = useState(false); 
-    // const [loading, setLoading] = useState(true);
+    const [buttonnstate, setButtonstate] = useState("3");
     const [title, setTitle] = useState("");
     const [author, setAuthor] = useState("");
-    const [score, setScore] = useState("");
+    // const [score, setScore] = useState("");
     const [review, setReview] = useState("");
 
     return (
@@ -46,11 +46,39 @@ const BookInput = ({props}) => {
             </div>
             <div>
                 <p style={{ fontSize: 15, color: 'white'}}> Score:</p>
-                <input
-                value={score}
-                onChange={e => setScore(e.target.value)}
-                required>
-                </input>
+                <form>
+                    <div className="radio">
+                        <label className="buttonControlLabel">
+                            1
+                            <input type="radio" value="1" name="scoreset" onChange={e => setButtonstate("1")}/>
+                            
+                        </label>
+                    </div>
+                    <div className="radio">
+                        <label className="buttonControlLabel">
+                            2
+                            <input type="radio" value="2" name="scoreset" onChange={e => setButtonstate("2")}/>
+                        </label>
+                    </div>
+                    <div className="radio">
+                        <label className="buttonControlLabel">
+                            3
+                            <input type="radio" value="3" name="scoreset" onChange={e => setButtonstate("3")}/>
+                        </label>
+                    </div>
+                    <div className="radio">
+                        <label className="buttonControlLabel">
+                            4
+                            <input type="radio" value="4" name="scoreset" onChange={e => setButtonstate("4")}/>
+                        </label>
+                    </div>
+                    <div className="radio">
+                        <label className="buttonControlLabel">
+                            5
+                            <input type="radio" value="5" name="scoreset" onChange={e => setButtonstate("5")}/>
+                        </label>
+                    </div>
+                </form>
             </div>
             <div>
                 <p style={{ fontSize: 15, color: 'white'}}> Review:</p>
@@ -62,7 +90,7 @@ const BookInput = ({props}) => {
             </div>
 
             <div>
-                <button style={{ fontSize: 15, color: 'black'}} onClick={() => postForm(title, author, score, review)}> Add book to book list</button> 
+                <button style={{ fontSize: 15, color: 'black'}} onClick={() => postForm(title, author, buttonnstate, review)}> Add book to book list</button> 
             </div>
             
               
