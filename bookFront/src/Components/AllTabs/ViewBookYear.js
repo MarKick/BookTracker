@@ -47,7 +47,9 @@ const ViewBookYear = (props) => {
             </div>);
         })}
         </center>
-        <BookCount/>
+        <BookCount
+          tab={thisTab}
+        />
         <AddBook
           year={thisYear}
         />

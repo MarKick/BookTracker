@@ -1,10 +1,11 @@
 import React, {useState, useEffect}  from "react";
 import "./bookInfo.css";
 
-const BookCount = ({props}) => {
+const BookCount = (props) => {
     const [loading, setLoading] = useState(true); 
     const [data, setData] = useState({});
-    
+    const thisTab = props.tab;
+
     const fetchData = () => {
         fetch('http://localhost:3001/getBookList', {
           method: 'GET',
@@ -24,7 +25,7 @@ const BookCount = ({props}) => {
 
     return (
         <div>
-              <div>{loading ? <p className="bookCountText"> Book count : 0</p> : <p className="bookCountText"> Book count : {data.tab1.count}</p>}</div>
+              <div>{loading ? <p className="bookCountText"> Book count : 0</p> : <p className="bookCountText"> Book count : {data[thisTab].count}</p>}</div>
         </div>
     );
 }; export default BookCount;
