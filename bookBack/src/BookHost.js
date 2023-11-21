@@ -30,4 +30,4 @@ var bookHostSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('bookHost', bookHostSchema);
+module.exports = mongoose.model('BookHost', bookHostSchema);

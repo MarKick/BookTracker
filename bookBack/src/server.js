@@ -24,13 +24,18 @@ app.post("/addBook", (req, res) => {
 
     console.log(req.body);
     // Check if entry is complete (no null values)
-    
+    const bookhandler = new BookHandler();
     if (!req.body) return res.send('Empty add');
     if (!req.body.year || !req.body.title || !req.body.author || !req.body.score || !req.body.review) return res.send('Incomplete book info for it to be added to DB.');
     
     try {
-        const bookhandler = new BookHandler();
-        bookhandler.addBook(req.body.year, req.body.title, req.body.author, req.body.score, req.body.review);
+        bookhandler.connect()
+            .then( () => bookhandler.addBook(req.body.year, req.body.title, req.body.author, req.body.score, req.body.review))
+            .then( () => console.log('Book added'))
+            .catch( (err) => {
+                console.log('Could not add text. Error', err);
+            });
+        
     } catch (e) {
         console.log("Error");
     }

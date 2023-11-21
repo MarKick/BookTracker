@@ -1,4 +1,4 @@
-version: "3.0"
+version: "3.8"
 services:
   bookfront:
     image: bookfront
@@ -24,9 +24,6 @@ services:
       - 3001:3001
     environment:
       BOOK_HOST: bookhost
-    # networks:
-    #   shared:
-    #     ipv4_address: 172.168.10.24
 
   bookhost:
     image: mongo
@@ -37,17 +34,7 @@ services:
     volumes:
       - booktracker-data:/data/db
       - mongo-config:/data/configdb
-    # networks:
-    #   shared:
-    #     ipv4_address: 172.168.10.25
 
 volumes:
   booktracker-data:
   mongo-config:
-
-# networks:
-#   shared:
-#     ipam:
-#       driver: default
-#       config:
-#         - subnet: "172.168.10.0/24"
