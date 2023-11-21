@@ -1,11 +1,15 @@
+
 const express = require("express");
 // const app = express(express.json());
 const app = express();
 app.use(express.json());
 const cors = require("cors");
+const mongoose = require('mongoose');
 
 const route = 3001;
 const IP_DB = '172.168.10.25';
+
+const BookHandler = require('./BookHandler');
 
 app.use(cors())
 
@@ -17,10 +21,22 @@ app.get("/status", (req, res) => {
 });
 
 app.post("/addBook", (req, res) => {
+
     console.log(req.body);
     // Check if entry is complete (no null values)
+    
+    if (!req.body) return res.send('Empty add');
+    if (!req.body.year || !req.body.title || !req.body.author || !req.body.score || !req.body.review) return res.send('Incomplete book info for it to be added to DB.');
+    
+    try {
+        const bookhandler = new BookHandler();
+        bookhandler.addBook(req.body.year, req.body.title, req.body.author, req.body.score, req.body.review);
+    } catch (e) {
+        console.log("Error");
+    }
+
     res.json({responseFromServer: "success!!!!"})
-})
+});
 
 app.get("/getBookList", (req, res) => {
     // make request to DB to recieve the book list
@@ -79,4 +95,4 @@ app.get("/getBookList", (req, res) => {
 
     res.json(returnData);
     
-})
+});

@@ -4,13 +4,14 @@
     "description": "Frontend of Book review app",
         "scripts": {
             "test": "echo \"Error: no test specified\" && exit 1",
-            "dev": "nodemon server.js", 
-            "start": "node server"
+            "dev": "nodemon src/server.js", 
+            "start": "node src/server.js"
     },
     "author": "Marcus Kicklighter",
     "license": "NONE",
     "dependencies": {
         "express": "^4.18.1",
-        "socket.io": "^4.5.0"
+        "socket.io": "^4.5.0",
+        "mongoose": "^6.3.3"
     }
 }

@@ -5,7 +5,6 @@ RUN npm install -g nodemon
 EXPOSE 3000
 WORKDIR /app
 COPY . .
-RUN npm install react-router-dom
 RUN npm install
 ENV DEBUG='bookFront:*'
 # ENTRYPOINT ["npm", "run", "dev"]

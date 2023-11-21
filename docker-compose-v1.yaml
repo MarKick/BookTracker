@@ -16,8 +16,8 @@ services:
 
   bookback:
     image: bookback
-    # volumes:
-    #   - ./bookBack/:/app/ # bind mount
+    volumes:
+      - ./bookBack/src:/app/src # bind mount
     deploy:
       replicas: 1
     ports:

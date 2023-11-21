@@ -4,7 +4,7 @@ import React, {useState}  from "react";
 import './text-input-style.css';
 import './bookInput.css'
 
-const BookInput = ({props}) => {
+const BookInput = (props) => {
     // const [data, setData] = useState(false); 
     const [buttonnstate, setButtonstate] = useState("3");
     const [title, setTitle] = useState("");
@@ -12,12 +12,14 @@ const BookInput = ({props}) => {
     // const [score, setScore] = useState("");
     const [review, setReview] = useState("");
 
-    function postForm(title, author, score, review) {
+    const year = props.year;
+
+    function postForm(year, title, author, score, review) {
         var success = 0;
         fetch('http://localhost:3001/addBook', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({ title: title, author: author, score : score, review: review })
+            body: JSON.stringify({ year: year, title: title, author: author, score : score, review: review })
         })
         .then(async res => res.json())
         .then(async resData => {
@@ -92,7 +94,7 @@ const BookInput = ({props}) => {
             </div>
 
             <div>
-                <button className="addBookToList" onClick={() => postForm(title, author, buttonnstate, review)}> Add book to book list</button> 
+                <button className="addBookToList" onClick={() => postForm(year, title, author, buttonnstate, review)}> Add book to book list</button> 
             </div>
             
               
