@@ -6,9 +6,8 @@ import BookCount from "./BookCount";
 
 const ViewBookYear = (props) => {
   const [loading, setLoading] = useState(true);
-  const [data, setData] = useState({});
+  // const [data, setData] = useState({});
   const [tabdata, setTabdata] = useState();
-  // const url = "https://jsonplaceholder.typicode.com/users"; // TODO: Remove, connect to API instead
   const thisYear = props.year;
   const thisTab = props.tab;
 
@@ -21,7 +20,7 @@ const ViewBookYear = (props) => {
     })
     .then(async res => res.json())
     .then(async resData => {
-        setData(resData);
+        // setData(resData);
         setTabdata(resData[thisTab])
         setLoading(false);
     })

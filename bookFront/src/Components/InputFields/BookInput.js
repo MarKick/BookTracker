@@ -4,21 +4,6 @@ import React, {useState}  from "react";
 import './text-input-style.css';
 import './bookInput.css'
 
-function postForm(title, author, score, review) {
-    var success = 0;
-    fetch('http://localhost:3001/addBook', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ title: title, author: author, score : score, review: review })
-    })
-    .then(async res => res.json())
-    .then(async resData => {
-        success = 1; // change to check if DB added ok
-        console.log(title);
-    })
-    return success;
-}
-
 const BookInput = ({props}) => {
     // const [data, setData] = useState(false); 
     const [buttonnstate, setButtonstate] = useState("3");
@@ -26,6 +11,21 @@ const BookInput = ({props}) => {
     const [author, setAuthor] = useState("");
     // const [score, setScore] = useState("");
     const [review, setReview] = useState("");
+
+    function postForm(title, author, score, review) {
+        var success = 0;
+        fetch('http://localhost:3001/addBook', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ title: title, author: author, score : score, review: review })
+        })
+        .then(async res => res.json())
+        .then(async resData => {
+            success = 1; // change to check if DB added ok
+            console.log(title);
+        })
+        return success;
+    }    
 
     return (
         <div>

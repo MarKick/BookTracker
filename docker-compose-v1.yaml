@@ -1,0 +1,53 @@
+version: "3.0"
+services:
+  bookfront:
+    image: bookfront
+    ports:
+      - 3000:3000
+    volumes:
+      - ./bookFront/src:/app/src # bind mount
+    environment:
+      BOOK_HOST: bookhost
+      BACKEND: bookback
+      TIMEOUT: 10
+    # networks:
+    #   shared:
+    #     ipv4_address: 172.168.10.23
+
+  bookback:
+    image: bookback
+    # volumes:
+    #   - ./bookBack/:/app/ # bind mount
+    deploy:
+      replicas: 1
+    ports:
+      - 3001:3001
+    environment:
+      BOOK_HOST: bookhost
+    # networks:
+    #   shared:
+    #     ipv4_address: 172.168.10.24
+
+  bookhost:
+    image: mongo
+    restart: always
+    command: --quiet --syslog
+    expose:
+      - "27017"
+    volumes:
+      - booktracker-data:/data/db
+      - mongo-config:/data/configdb
+    # networks:
+    #   shared:
+    #     ipv4_address: 172.168.10.25
+
+volumes:
+  booktracker-data:
+  mongo-config:
+
+# networks:
+#   shared:
+#     ipam:
+#       driver: default
+#       config:
+#         - subnet: "172.168.10.0/24"
