@@ -42,18 +42,8 @@ class BookHandler {
             .where("year")
             .equals(year)
             .exec();
-            // .then(results => { // .find() returns query, maybe format?
-            // }
-            // );
-        
-        // Product.find({},function(err, products) {
-        //     if (err) {
-        //         response.status(500).send({error: "Could not fetch products. "+ err});
-        //     } else {
-        //         response.send(products);
-        //     }
-        // });
     };
+    
 }
 
 module.exports = BookHandler;

@@ -27,7 +27,8 @@ const BookCount = (props) => {
 
     return (
         <div>
-              <div>{loading ? <p className="bookCountText"> Book count : -</p> : <p className="bookCountText"> Book count : {}</p>}</div>
+              <div>{loading ? <p className="bookCountText"> Book count : -</p> : <p className="bookCountText"> Book count : {Object.keys(data).length
+}</p>}</div>
         </div>
     );
 }; export default BookCount;

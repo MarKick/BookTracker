@@ -13,7 +13,7 @@ const BookInfo = ({props}) => {
 
     return (
         <div>
-            <button className="bookInfoButton" onClick={handleClick}> {props.title} ~ {props.author}</button> 
+            <button className="bookInfoButton" onClick={handleClick}> {props.title}</button> 
             <div>{dd ? <BookText props={props}/>: null}</div> 
 
         </div>

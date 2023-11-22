@@ -7,7 +7,7 @@ import BookCount from "./BookCount";
 const ViewBookYear = (props) => {
   const [loading, setLoading] = useState(true);
   // const [data, setData] = useState({});
-  const [tabdata, setTabdata] = useState();
+  const [tabdata, setTabdata] = useState([]);
   const year = props.year;
 
   const fetchData = () => {
