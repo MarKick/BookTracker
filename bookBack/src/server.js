@@ -43,9 +43,10 @@ app.post("/addBook", (req, res) => {
     res.json({responseFromServer: "success!!!!"})
 });
 
-app.get("/getBookList", (req, res) => {
+app.post("/getBookList", (req, res) => {
     // make request to DB to recieve the book list
     // store response in res variable
+    console.log(req.body);
     const returnData = {
         "tab1": {
             "count" : 1,

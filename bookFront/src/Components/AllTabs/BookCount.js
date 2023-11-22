@@ -5,19 +5,22 @@ const BookCount = (props) => {
     const [loading, setLoading] = useState(true); 
     const [data, setData] = useState({});
     const thisTab = props.tab;
+    const year = props.year;
 
     const fetchData = () => {
         fetch('http://localhost:3001/getBookList', {
-          method: 'GET',
-          headers: {
-              'Content-Type': 'application/json'
-          }
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ year: props.year})
         })
         .then(async res => res.json())
         .then(async resData => {
             setData(resData);
             setLoading(false);
         })
+        .catch((err) => {
+            console.log(err);
+        });
     }
     useEffect(() => {
         fetchData();
@@ -25,7 +28,7 @@ const BookCount = (props) => {
 
     return (
         <div>
-              <div>{loading ? <p className="bookCountText"> Book count : 0</p> : <p className="bookCountText"> Book count : {data[thisTab].count}</p>}</div>
+              <div>{loading ? <p className="bookCountText"> Book count : -</p> : <p className="bookCountText"> Book count : {data[thisTab].count}</p>}</div>
         </div>
     );
 }; export default BookCount;

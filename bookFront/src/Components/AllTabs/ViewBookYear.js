@@ -8,15 +8,14 @@ const ViewBookYear = (props) => {
   const [loading, setLoading] = useState(true);
   // const [data, setData] = useState({});
   const [tabdata, setTabdata] = useState();
-  const thisYear = props.year;
+  const year = props.year;
   const thisTab = props.tab;
 
   const fetchData = () => {
     fetch('http://localhost:3001/getBookList', {
-      method: 'GET',
-      headers: {
-          'Content-Type': 'application/json'
-      }
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ year: props.year})
     })
     .then(async res => res.json())
     .then(async resData => {
@@ -34,23 +33,24 @@ const ViewBookYear = (props) => {
       loading ? <p>Fetching data</p> :
 
       <div className="ViewBookYear">
-        <h1>Read books {thisYear}!</h1>  
+        <h1>Read books {year}!</h1>  
         <center>
         {tabdata.books.map((dataObj, index) => {
             return (<div key={index}> 
               <BookInfo 
                 id={index}
                 props={dataObj}
-                year={thisYear}
+                year={year}
               />
             </div>);
         })}
         </center>
         <BookCount
           tab={thisTab}
+          year={year}
         />
         <AddBook
-          year={thisYear}
+          year={year}
         />
       </div>
     }
