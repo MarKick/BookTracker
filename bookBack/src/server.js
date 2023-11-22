@@ -44,26 +44,26 @@ app.post("/getBookList", (req, res) => {
     bookhandler.connect()
         .then( () => bookhandler.getBooks(year))
         .then ( result => {
-            // console.log(result);
-            retData = result;
+            console.log(result);
+            res.json(result);
         })
         .catch( (err) => {
             console.log('Could not fetch texts. Error', err);
         }); 
-    res.json(retData);
+    
 });
 
-app.post("/deleteAllDB" , (req, res) => {
-    const bookhandler = new BookHandler();
-    let year = req.body.year;
-    bookhandler.connect()
-        .then( () => bookhandler.deleteAll())
-        .then ( result => {
-            console.log(result);
-        })
-        .catch( (err) => {
-            console.log('Could not remove books. Error', err);
-        });
+// app.post("/deleteAllDB" , (req, res) => {
+//     const bookhandler = new BookHandler();
+//     let year = req.body.year;
+//     bookhandler.connect()
+//         .then( () => bookhandler.deleteAll())
+//         .then ( result => {
+//             console.log(result);
+//         })
+//         .catch( (err) => {
+//             console.log('Could not remove books. Error', err);
+//         });
     
-    res.json({responseFromServer: "success!!!!"})
-});
+//     res.json({responseFromServer: "success!!!!"})
+// });
