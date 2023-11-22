@@ -9,7 +9,6 @@ const ViewBookYear = (props) => {
   // const [data, setData] = useState({});
   const [tabdata, setTabdata] = useState();
   const year = props.year;
-  const thisTab = props.tab;
 
   const fetchData = () => {
     fetch('http://localhost:3001/getBookList', {
@@ -20,7 +19,7 @@ const ViewBookYear = (props) => {
     .then(async res => res.json())
     .then(async resData => {
         // setData(resData);
-        setTabdata(resData[thisTab])
+        setTabdata(resData)
         setLoading(false);
     })
   }
@@ -35,7 +34,7 @@ const ViewBookYear = (props) => {
       <div className="ViewBookYear">
         <h1>Read books {year}!</h1>  
         <center>
-        {tabdata.books.map((dataObj, index) => {
+        {tabdata.map((dataObj, index) => {
             return (<div key={index}> 
               <BookInfo 
                 id={index}
@@ -46,7 +45,6 @@ const ViewBookYear = (props) => {
         })}
         </center>
         <BookCount
-          tab={thisTab}
           year={year}
         />
         <AddBook

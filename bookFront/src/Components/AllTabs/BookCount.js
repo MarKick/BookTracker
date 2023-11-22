@@ -4,7 +4,6 @@ import "./bookInfo.css";
 const BookCount = (props) => {
     const [loading, setLoading] = useState(true); 
     const [data, setData] = useState({});
-    const thisTab = props.tab;
     const year = props.year;
 
     const fetchData = () => {
@@ -28,7 +27,7 @@ const BookCount = (props) => {
 
     return (
         <div>
-              <div>{loading ? <p className="bookCountText"> Book count : -</p> : <p className="bookCountText"> Book count : {data[thisTab].count}</p>}</div>
+              <div>{loading ? <p className="bookCountText"> Book count : -</p> : <p className="bookCountText"> Book count : {}</p>}</div>
         </div>
     );
 }; export default BookCount;
