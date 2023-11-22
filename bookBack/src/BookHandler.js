@@ -44,6 +44,10 @@ class BookHandler {
             .exec();
     };
 
+    async deleteAll() {
+        return Book.deleteMany({});
+    }
+
 }
 
 module.exports = BookHandler;
