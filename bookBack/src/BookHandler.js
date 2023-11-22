@@ -3,7 +3,7 @@ var dbServer = '127.0.0.1:27017';
 // var dbServer = '0.0.0.0:27017';
 const dbPort = '27017';
 const dbName = 'BookHost';
-var BookHost = require('./BookHost'); // Bookhost DB schema
+var Book = require('./BookHost'); // Bookhost DB schema
 mongoose.set("strictQuery", false);
 
 class BookHandler {
@@ -28,7 +28,7 @@ class BookHandler {
 
     async addBook(year, title, author, score, review) {
         
-        const newbook_instance = new BookHost({year: year, title: title, author: author, score: score, review: review});
+        const newbook_instance = new Book({year: year, title: title, author: author, score: score, review: review});
         try {
             await newbook_instance.save();
         } catch(err) {
@@ -40,7 +40,8 @@ class BookHandler {
     async getBooks(year) {
         return Book.find()
             .where("year")
-            .equals(year);
+            .equals(year)
+            .exec();
             // .then(results => { // .find() returns query, maybe format?
             // }
             // );
