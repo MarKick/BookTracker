@@ -19,7 +19,7 @@ class BookHandler {
 
         let connection = `mongodb://${dbServer}/${dbName}`;
         return mongoose.connect(connection)
-            .then( () => console.log('Connected to database', dbName))
+            // .then( () => console.log('Connected to database', dbName))
             .catch( (err) => {
                 console.error('Database connection error', dbName);
                 console.error(' trying to connect to server:', connection);
@@ -43,7 +43,7 @@ class BookHandler {
             .equals(year)
             .exec();
     };
-    
+
 }
 
 module.exports = BookHandler;

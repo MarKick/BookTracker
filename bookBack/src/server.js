@@ -39,14 +39,12 @@ app.post("/addBook", (req, res) => {
 });
 
 app.post("/getBookList", (req, res) => {
-    // make request to DB to recieve the book list
-    // store response in res variable
     const bookhandler = new BookHandler();
     let year = req.body.year;
-    let returnData = bookhandler.connect()
+    bookhandler.connect()
         .then( () => bookhandler.getBooks(year))
         .then ( result => {
-            console.log(result);
+            // console.log(result);
             retData = result;
         })
         .catch( (err) => {
@@ -56,11 +54,9 @@ app.post("/getBookList", (req, res) => {
 });
 
 app.post("/deleteAllDB" , (req, res) => {
-    // make request to DB to recieve the book list
-    // store response in res variable
     const bookhandler = new BookHandler();
     let year = req.body.year;
-    let returnData = bookhandler.connect()
+    bookhandler.connect()
         .then( () => bookhandler.deleteAll())
         .then ( result => {
             console.log(result);
