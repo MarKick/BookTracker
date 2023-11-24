@@ -58,7 +58,7 @@ spec:
   ports:
   - protocol: TCP
     port: 3001
-...
+---
 
 ### Deployment of backend
 ---
@@ -83,3 +83,71 @@ spec:
           image: markick/bookback
           ports:
           - containerPort: 3001
+
+### Deployment of service required to access database
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: booklibrary-service
+  labels:
+    app: booklibrary
+spec:
+  selector:
+    app: booklibrary
+  ports:
+  - protocol: TCP
+    port: 27017
+    targetPort: mongodb-port
+  
+---
+
+## Deployment of database: booklibrary
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: booklibrary
+  labels:
+    app: booklibrary
+spec:
+  serviceName: booklibrary-service
+  replicas: 1
+  selector:
+    matchLabels:
+      app: booklibrary
+  template:
+    metadata:
+      labels:
+        app: booklibrary
+        startup: booklibrary-wait
+    spec:
+      containers:
+      - name: booklibrary
+        image: mongo
+        ports:
+        - containerPort: 27017
+          name: mongodb-port
+        volumeMounts:
+        - name: booklibrary-data
+          mountPath: /data/db
+        - name: mongo-config
+          mountPath: /data/configdb
+  volumeClaimTemplates:
+  - metadata:
+      name: booklibrary-data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: "book-data"
+      resources:
+        requests:
+          storage: 15Mi
+  - metadata:
+      name: mongo-config
+    spec:
+      accessModes: ["ReadWriteOnce"]
+#        storageClassName: config
+      resources:
+        requests: 
+          storage: 5Mi  
+  

@@ -22,7 +22,7 @@ const ViewBookYear = (props) => {
         // setData(resData);
         setTabdata(resData)
         setLoading(false);
-    })
+    }) // TODO: catch statement of fetch
   }
   useEffect(() => {
       fetchData();
