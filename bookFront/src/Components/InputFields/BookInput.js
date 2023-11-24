@@ -11,11 +11,11 @@ const BookInput = (props) => {
     const [author, setAuthor] = useState("");
     // const [score, setScore] = useState("");
     const [review, setReview] = useState("");
+    const [success, setSuccess] = useState(false);
 
     const year = props.year;
 
     function postForm(year, title, author, score, review) {
-        var success = 0;
         fetch('/addBook', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
@@ -23,10 +23,13 @@ const BookInput = (props) => {
         })
         .then(async res => res.json())
         .then(async resData => {
-            success = 1; // change to check if DB added ok
+            setSuccess(true); 
             console.log(title);
         })
-        return success;
+        .catch((err) => {
+            console.log(err);
+            setSuccess(false);
+        });
     }    
 
     return (
@@ -96,7 +99,9 @@ const BookInput = (props) => {
             <div>
                 <button className="addBookToList" onClick={() => postForm(year, title, author, buttonnstate, review)}> Add book to book list</button> 
             </div>
-            
+            <div>
+            {success ? <p> Success to add book!</p> : null}
+            </div>
               
         </div>
     );

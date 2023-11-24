@@ -93,6 +93,7 @@ metadata:
   labels:
     app: booklibrary
 spec:
+  clusterIP: 10.96.0.101
   selector:
     app: booklibrary
   ports:
@@ -128,26 +129,24 @@ spec:
         ports:
         - containerPort: 27017
           name: mongodb-port
-        volumeMounts:
-        - name: booklibrary-data
-          mountPath: /data/db
-        - name: mongo-config
-          mountPath: /data/configdb
-  volumeClaimTemplates:
-  - metadata:
-      name: booklibrary-data
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      storageClassName: "book-data"
-      resources:
-        requests:
-          storage: 15Mi
-  - metadata:
-      name: mongo-config
-    spec:
-      accessModes: ["ReadWriteOnce"]
-#        storageClassName: config
-      resources:
-        requests: 
-          storage: 5Mi  
+  #       volumeMounts:
+  #       - name: booklibrary-data
+  #         mountPath: /data/db
+  #       - name: mongo-config
+  #         mountPath: /data/configdb
+  # volumeClaimTemplates:
+  # - metadata:
+  #     name: booklibrary-data
+  #   spec:
+  #     accessModes: [ "ReadWriteOnce" ]
+  #     resources:
+  #       requests:
+  #         storage: 5Mi
+  # - metadata:
+  #     name: mongo-config
+  #   spec:
+  #     accessModes: ["ReadWriteOnce"]
+  #     resources:
+  #       requests: 
+  #         storage: 5Mi  
   
