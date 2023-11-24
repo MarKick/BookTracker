@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var dbServer = '10.96.0.101:27017';
+var dbServer = '10.96.0.101:27017'; // Maybe do this dynamically?
 // var dbServer = '0.0.0.0:27017';
 const dbPort = '27017';
 const dbName = 'BookHost';
