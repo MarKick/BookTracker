@@ -12,7 +12,7 @@ const ViewBookYear = (props) => {
   const year = props.year;
 
   const fetchData = () => {
-    fetch('http://localhost:3001/getBookList', {
+    fetch('http://bookback:3001/getBookList', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ year: props.year})
@@ -51,7 +51,7 @@ const ViewBookYear = (props) => {
         <AddBook
           year={year}
         />
-        <RemoveAllBooksButton/>
+        {/* <RemoveAllBooksButton/> */}
       </div>
     }
     </div>

@@ -16,7 +16,7 @@ const BookInput = (props) => {
 
     function postForm(year, title, author, score, review) {
         var success = 0;
-        fetch('http://localhost:3001/addBook', {
+        fetch('http://bookback:3001/addBook', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({ year: year, title: title, author: author, score : score, review: review })

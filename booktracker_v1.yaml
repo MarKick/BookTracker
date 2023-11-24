@@ -41,7 +41,7 @@ spec:
         image: ## INSERT LINK TO bookfront image on docker-hub
         ports:
         - containerPort: 3000
-      - name: bookbacl
+      - name: bookback
         image: ## INSERT LINK TO bookback image on docker-hub
         ports:
         - containerPort: 3001
