@@ -8,9 +8,13 @@ COPY . .
 RUN npm install
 ENV DEBUG='bookFront:*'
 # ENTRYPOINT ["npm", "run", "dev"]
-CMD ["npm", "start"]
+RUN npm run build
+# CMD ["npm", "start"]
 
 # Build step #2: build an nginx container
-# FROM nginx:stable-alpine
-# COPY --from=build-step /app/build /usr/share/nginx/html
-# COPY deployment/nginx.default.conf /etc/nginx/conf.d/default.conf
+FROM nginx:stable-alpine
+COPY --from=build-step /app/build /usr/share/nginx/html
+COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80
+# Start Nginx when the container runs
+CMD ["nginx", "-g", "daemon off;"]

@@ -12,7 +12,7 @@ const ViewBookYear = (props) => {
   const year = props.year;
 
   const fetchData = () => {
-    fetch('http://bookback:3001/getBookList', {
+    fetch('/getBookList', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ year: props.year})

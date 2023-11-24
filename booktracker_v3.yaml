@@ -1,0 +1,86 @@
+######################################
+### Kubernetes file for deployment ###
+######################################
+
+
+## Load balancer
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: booktracker-service
+  labels:
+    app: booktracker
+spec:
+  type: LoadBalancer
+  ports:
+  - name: http
+    port: 3000
+    nodePort: 30001
+    protocol: TCP
+  selector:
+    app: booktracker
+
+## Deployment of frontend
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    app: bookfront
+    startup: bookfront-wait
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bookfront
+  template:
+    metadata:
+      labels:
+        app: bookfront
+    spec:
+      containers:
+        - name: bookfront # Hostname
+          image: markick/bookfront
+          ports:
+            - containerPort: 3000
+
+## backend service that links frontend and backend
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bookback
+spec:
+  selector:
+    app: bookapp
+    tier: backend
+  ports:
+  - protocol: TCP
+    port: 3001
+...
+
+### Deployment of backend
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  selector:
+    matchLabels:
+      app: bookback
+      tier: backend
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: bookback
+        tier: backend
+    spec:
+      containers:
+        - name: bookback # Hostname
+          image: markick/bookback
+          ports:
+          - containerPort: 3001

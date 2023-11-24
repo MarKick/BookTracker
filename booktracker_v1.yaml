@@ -1,5 +1,5 @@
 ######################################
-### Kubernetes file for deployment ###
+### Kubernetes file for pods ###
 ######################################
 
 # BookFront + BookBack

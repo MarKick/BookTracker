@@ -12,7 +12,7 @@ const RemoveAllBooksButton = ({props}) => {
     }
     // const year = props.year;
     const deleteData = () => {
-        fetch('http://bookback:3001/deleteAllDB', {
+        fetch('/deleteAllDB', {
           method: 'POST',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({})
