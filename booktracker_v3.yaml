@@ -45,12 +45,12 @@ spec:
           ports:
             - containerPort: 80
 
-## backend service that links frontend and backend
+## backend service that links frontend and backend. Default: ClusterIP
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: backend-service
+  name: bookback
 spec:
   selector:
     app: bookback

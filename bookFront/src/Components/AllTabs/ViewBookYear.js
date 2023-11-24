@@ -26,6 +26,7 @@ const ViewBookYear = (props) => {
   }
   useEffect(() => {
       fetchData();
+      console.log(tabdata);
   }, [])
 
   return (
