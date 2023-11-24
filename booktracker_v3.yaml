@@ -8,18 +8,18 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: booktracker-service
-  labels:
-    app: booktracker
+  name: frontend-service
 spec:
   type: LoadBalancer
-  ports:
-  - name: http
-    port: 3000
-    nodePort: 30001
-    protocol: TCP
   selector:
-    app: booktracker
+    app: bookfront
+    tier: frontend
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+    nodePort: 30001
+    
 
 ## Deployment of frontend
 ---
@@ -27,34 +27,33 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend
-  labels:
-    app: bookfront
-    startup: bookfront-wait
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: bookfront
+      tier: frontend
   template:
     metadata:
       labels:
         app: bookfront
+        tier: frontend
     spec:
       containers:
         - name: bookfront # Hostname
           image: markick/bookfront
           ports:
-            - containerPort: 3000
+            - containerPort: 80
 
 ## backend service that links frontend and backend
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: bookback
+  name: backend-service
 spec:
   selector:
-    app: bookapp
+    app: bookback
     tier: backend
   ports:
   - protocol: TCP
