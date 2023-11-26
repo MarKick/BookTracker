@@ -1,15 +1,11 @@
 import React, {useState}  from "react";
-// import TextField from "./TextField";
-// import TextArea from "./TextArea";
 import './text-input-style.css';
 import './bookInput.css'
 
 const BookInput = (props) => {
-    // const [data, setData] = useState(false); 
     const [buttonnstate, setButtonstate] = useState("3");
     const [title, setTitle] = useState("");
     const [author, setAuthor] = useState("");
-    // const [score, setScore] = useState("");
     const [review, setReview] = useState("");
     const [success, setSuccess] = useState(false);
 
@@ -52,7 +48,6 @@ const BookInput = (props) => {
             </div>
             <div>
                 <p className="fieldInput"> Score:</p>
-                {/* TO DO: Set styling on radiobuttons */}
                 <form>
                     <div className="radio">
                         <label className="buttonControlLabel">
