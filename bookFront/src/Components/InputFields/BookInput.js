@@ -20,7 +20,6 @@ const BookInput = (props) => {
         .then(async res => res.json())
         .then(async resData => {
             setSuccess(true); 
-            console.log(title);
         })
         .catch((err) => {
             console.log(err);

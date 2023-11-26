@@ -6,8 +6,7 @@ var Book = require('./BookHost'); // Bookhost DB schema
 mongoose.set("strictQuery", false);
 
 class BookHandler {
-    constructor() {
-    }
+    constructor() {}
 
     async connect() {
         if (!process.env.BOOK_HOST) {
@@ -18,7 +17,6 @@ class BookHandler {
 
         let connection = `mongodb://${dbServer}/${dbName}`;
         return mongoose.connect(connection)
-            // .then( () => console.log('Connected to database', dbName))
             .catch( (err) => {
                 console.error('Database connection error', dbName);
                 console.error(' trying to connect to server:', connection);
@@ -32,8 +30,7 @@ class BookHandler {
             await newbook_instance.save();
         } catch(err) {
             console.log('Error while inserting test text:', err.message);
-        }    
-        // .catch(err => console.log('Error while inserting test text:', err.message)); // Error here, prob network error
+        }
     };
 
     async getBooks(year) {

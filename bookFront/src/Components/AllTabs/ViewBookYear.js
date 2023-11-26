@@ -3,11 +3,10 @@ import React, {useState, useEffect}  from "react";
 import BookInfo from "./BookInfo";
 import AddBook from "./AddBook";
 import BookCount from "./BookCount";
-import RemoveAllBooksButton from "../Buttons/RemoveAllBooksButton";
+// import RemoveAllBooksButton from "../Buttons/RemoveAllBooksButton";
 
 const ViewBookYear = (props) => {
   const [loading, setLoading] = useState(true);
-  // const [data, setData] = useState({});
   const [tabdata, setTabdata] = useState([]);
   const year = props.year;
 
@@ -22,7 +21,10 @@ const ViewBookYear = (props) => {
         // setData(resData);
         setTabdata(resData)
         setLoading(false);
-    }) // TODO: catch statement of fetch
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   }
   useEffect(() => {
       fetchData();
