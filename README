@@ -1,0 +1,16 @@
+
+To use the application one ought to have a succesful minikube installation. 
+
+1. For the kubernetes to be accessible through the load balancer one has to run:
+*minikube tunnel*
+
+2. To start the cluster run:
+*kubectl create -f booktracker_v3.yaml*
+
+3. To get the IP of the website:
+*kubectl get svc*
+
+Paste the IP in a browser. If this does not work it should be accessible at: http://IP-ADDRESS
+
+4. To delete or shut down the cluster. Use:
+kubectl delete --cascade='foreground' -f booktracker_v3.yaml
